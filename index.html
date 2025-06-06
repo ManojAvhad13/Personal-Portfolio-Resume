@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manoj Avhad - Web Developer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- <header id="about">
+        <h1>Manoj Avhad</h1>
+    </header> -->
+
+    <header class="site-header">
+        <div class="header-left">
+            <img src="profile.png" alt="Profile Photo" class="profile-photo" />
+            <h1 class="site-name">Manoj Avhad</h1>
+            <h3>| Web Developer | MERN Stack Developer</h3>
+        </div>
+        <nav class="site-nav">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- <nav class="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#social">Social</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav> -->
+
+    <!-- <button id="darkToggle" class="dark-toggle-btn">🌙</button> -->
+
+
+    <section id="about" class="about-section">
+        <div class="about-card">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm <strong>Manoj Avhad</strong>, a passionate Web Developer with hands-on experience in building
+                responsive and dynamic web applications using modern technologies like HTML, CSS, JavaScript, React,
+                Node.js, and MongoDB.
+            </p>
+            <p>
+                I enjoy creating clean, user-friendly designs and solving complex technical challenges. I recently
+                completed my Bachelor's in Computer Engineering and am now looking for exciting opportunities where I
+                can grow and contribute meaningfully.
+            </p>
+        </div>
+
+        <div class="resume-buttons">
+            <button onclick="showResume()">Show Resume</button>
+            <a href="Manoj_Avhad_Resume.pdf" download>
+                <button>Download Resume</button>
+            </a>
+        </div>
+
+        <!-- Hidden Resume Preview -->
+        <div id="resume-preview" class="resume-preview" style="display: none;">
+            <iframe src="Manoj_Avhad_Resume.pdf" width="100%" height="600px" frameborder="0"></iframe>
+        </div>
+
+    </section>
+
+
+    <!-- <section id="education" class="education">
+        <h2>Education</h2>
+        <p><strong>B.E. in Computer Engineering</strong></p>
+        <p>Sandip Institute of Technology, Nashik (Graduated: June 2024)</p>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+            <li>Java, HTML, CSS, JavaScript</li>
+            <li>React, Bootstrap 5, Tailwind CSS</li>
+            <li>MERN Stack (MongoDB, Express, React, Node.js)</li>
+            <li>MySQL, MongoDB</li>
+            <li>Git, GitHub</li>
+        </ul>
+    </section> -->
+
+    <section id="education" class="education">
+        <h2>Education</h2>
+        <div class="education-container">
+            <div class="education-card">
+                <h3>B.E. in Computer Engineering</h3>
+                <p><b>University:</b> Savitribai Phule Pune University</p>
+                <p><b>College:</b> Sandip Institute of Technology, Nashik</p>
+                <p> <b>CGPA:</b> 8.14 / 10 | <b>Graduated:</b> June 2024</p>
+            </div>
+
+            <div class="education-card">
+                <h3>HSC Science</h3>
+                <p><b>Board:</b> Maharashtra State Board</p>
+                <p><b>College:</b> MRMV Jr. College, Manmad</p>
+                <p> <b>Percentage:</b> 72% | <b>Passing Year:</b> 2020</p>
+            </div>
+
+            <div class="education-card">
+                <h3>SSC</h3>
+                <p><b>Board:</b> Maharashtra State Board</p>
+                <p><b>School:</b> MRMV School, Manmad</p>
+                <p><b>Percentage:</b> 84.80% | <b>Passing Year:</b> 2018</p>
+            </div>
+
+            <!-- Add more education cards here if needed -->
+            <!-- Example:
+        <div class="education-card">
+            <h3>HSC - Science</h3>
+            <p>XYZ College</p>
+            <p>Year: 2020</p>
+        </div>
+        -->
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skills-card">
+                <h3>Frontend</h3>
+                <div class="skill-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>React.js</span>
+                    <span>Tailwind CSS</span>
+                </div>
+            </div>
+            <div class="skills-card">
+                <h3>Backend</h3>
+                <div class="skill-tags">
+                    <span>Node.js</span>
+                    <span>Express.js</span>
+                    <span>MongoDB</span>
+                </div>
+            </div>
+            <div class="skills-card">
+                <h3>Database</h3>
+                <div class="skill-tags">
+                    <span>MongoDB</span>
+                    <span>MySQL</span>
+                </div>
+            </div>
+            <div class="skills-card">
+                <h3>Tools</h3>
+                <div class="skill-tags">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>VS Code</span>
+                    <span>Postman</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <h3>E-commerce Platform (MERN)</h3>
+                <p>Full-featured shopping site with authentication, admin panel, and cart functionality.</p>
+                <a href="https://github.com/yourusername/ecommerce-project" target="_blank">GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Job Portal Website</h3>
+                <p>React-based job listing and application system built during internship.</p>
+                <a href="https://github.com/yourusername/job-portal" target="_blank">GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h3>ATM Simulation</h3>
+                <p>Simulated ATM operations like balance check and withdrawal using React.</p>
+                <a href="https://github.com/yourusername/atm-project" target="_blank">GitHub</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Student Register Form</h3>
+                <p>React form with validation to register students and store their info.</p>
+                <a href="https://github.com/yourusername/student-form" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+
+        <!-- Existing contact info -->
+        <div class="contact-info">
+            <div class="contact-card-box">
+                <a href="tel:+919922160959">📞 +91 9922160959</a>
+            </div>
+            <div class="contact-card-box">
+                <a href="mailto:manojavhad04@gmail.com">📧 manojavhad04@gmail.com</a>
+            </div>
+        </div>
+
+
+        <!-- Contact form card -->
+        <div class="contact-card">
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Your message..." required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+
+
+
+    <!-- <section class="footer">
+        <p>&copy; 2025 Manoj Avhad</p>
+    </section> -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p><strong>Manoj Avhad</strong> — Web Developer</p>
+            <div class="footer-links">
+                <a href="mailto:manojavhad04@gmail.com">Email</a>
+                <a href="https://github.com/your-github-username" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/your-linkedin-username" target="_blank">LinkedIn</a>
+            </div>
+            <p>&copy; 2025 Manoj Avhad. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
