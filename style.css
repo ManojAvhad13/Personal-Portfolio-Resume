@@ -1,29 +1,16 @@
-/* Base Styles - Apply to all screen sizes, establish good defaults */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-    padding-top: 100px;
-    /* Adjusted to be slightly less rigid, can be a media query later */
+    padding-top: 120px;
+    /* Adjust this based on your header height */
     color: #333;
-    line-height: 1.6;
-    /* Improved readability */
-    box-sizing: border-box;
-    /* Ensures padding and border are included in element's total width and height */
 }
 
-/* Ensure all elements respect box-sizing */
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
-
-/* --- Hero Section --- */
+/* HERO SECTION */
 .hero-section {
-    height: 70vh;
-    /* Adjusted to be slightly less dominant on smaller screens */
+    min-height: 79vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,7 +18,7 @@ body {
     text-align: center;
     background: linear-gradient(to right, #e0f7ff, #ffffff);
     color: white;
-    padding: 1rem;
+    padding: 2rem 1rem;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -39,26 +26,18 @@ body {
 
 .hero-section h1 {
     color: #003366;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    /* Responsive font size using clamp() */
+    font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1rem;
     letter-spacing: 1px;
     animation: fadeInDown 1s ease-out;
-    padding: 0 1rem;
-    /* Add padding for smaller screens */
 }
 
 .hero-section p {
     color: #333;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    /* Responsive font size */
+    font-size: 1.3rem;
     margin-bottom: 2rem;
     animation: fadeInUp 1s ease-out;
-    max-width: 800px;
-    /* Limit width for better readability on large screens */
-    padding: 0 1rem;
-    /* Add padding for smaller screens */
 }
 
 .cta-button {
@@ -66,8 +45,7 @@ body {
     color: #007bff;
     padding: 0.75rem 1.5rem;
     border-radius: 30px;
-    font-size: clamp(1rem, 2vw, 1.1rem);
-    /* Responsive font size */
+    font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -80,38 +58,12 @@ body {
     transform: translateY(-3px);
 }
 
-/* Optional Animations (No changes needed, already responsive) */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* --- Hero Navigation --- */
+/* HERO NAVIGATION */
 .hero-nav {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* Allows items to wrap to the next line */
     gap: 1rem;
     padding: 1rem 2rem;
     border-radius: 50px;
@@ -137,7 +89,6 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.08);
     white-space: nowrap;
-    /* Prevents text from breaking lines */
 }
 
 .hero-nav a:hover {
@@ -147,65 +98,143 @@ body {
     transform: translateY(-2px);
 }
 
-/* Media Query: Tablet (768px and below) */
+/* ANIMATIONS */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVENESS */
+
+/* Tablets */
 @media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.65rem 1.3rem;
+    }
+
     .hero-nav {
         gap: 0.8rem;
-        padding: 0.8rem 1.5rem;
-        /* Slightly reduced padding */
+        padding: 1rem;
     }
 
     .hero-nav a {
         font-size: 0.95rem;
-        padding: 0.5rem 1.2rem;
+        padding: 0.5rem 1.1rem;
     }
 }
 
-/* Media Query: Mobile (480px and below) */
+/* Mobile */
 @media (max-width: 480px) {
+    .hero-section {
+        padding: 9rem 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1.05rem;
+    }
+
+    .cta-button {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.2rem;
+    }
+
     .hero-nav {
-        flex-direction: column;
-        /* Stack items vertically */
-        padding: 0.8rem 1rem;
-        gap: 0.6rem;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 0.5rem;
         border-radius: 25px;
-        max-width: 90%;
-        /* Adjust max-width for smaller screens */
+        overflow-x: unset;
+        white-space: normal;
+    }
+
+    .hero-nav a {
+        flex: 1 1 48%;
+        max-width: 48%;
+        box-sizing: border-box;
     }
 
     .hero-nav a {
         width: 100%;
-        /* Make links take full width */
         text-align: center;
-        padding: 0.6rem 1rem;
         font-size: 0.95rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+/* Small phones (extra tweak) */
+@media (max-width: 360px) {
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.55rem 1rem;
     }
 }
 
 
-/* --- General Section Styles --- */
+
 section {
     height: auto;
-    padding: 1.5rem;
-    /* Slightly reduced padding for smaller screens */
+    padding: 1.5rem 2rem;
     margin: 1rem auto;
     max-width: 1300px;
     background-color: #fff;
     box-shadow: 0 10px 30px rgba(102, 103, 104, 0.15);
     border-radius: 8px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 .section-anchor {
-    scroll-margin-top: 100px;
-    /* Keep consistent with body padding-top */
+    scroll-margin-top: 120px;
+    /* Adjust based on your header height */
 }
+
 
 h2 {
     border-bottom: 2px solid #333;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    /* Responsive font size */
 }
 
 ul {
@@ -213,15 +242,11 @@ ul {
     padding-left: 1.5rem;
 }
 
-/* --- Resume Buttons --- */
 .resume-buttons {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
     flex-wrap: wrap;
-    /* Allows buttons to wrap */
-    justify-content: center;
-    /* Center buttons when wrapped */
 }
 
 .resume-buttons button {
@@ -229,16 +254,11 @@ ul {
     color: white;
     border: none;
     padding: 0.7rem 1.4rem;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    /* Responsive font size */
+    font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
-    flex-grow: 1;
-    /* Allow buttons to grow to fill space */
-    max-width: 200px;
-    /* Limit button width */
 }
 
 .resume-buttons button:hover {
@@ -251,12 +271,9 @@ ul {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
-    /* For responsiveness, consider using an iframe with specific width/height
-       or a responsive image/PDF viewer. This CSS alone doesn't make content
-       within it responsive. */
 }
 
-/* --- Education Section --- */
+
 .education-container {
     display: flex;
     flex-wrap: wrap;
@@ -271,11 +288,7 @@ ul {
     padding: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
     width: 280px;
-    /* Base width */
-    flex: 1 1 280px;
-    /* Allows flexibility and a base width */
-    max-width: 100%;
-    /* Ensure it doesn't overflow */
+    flex: 1 1 250px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -285,17 +298,16 @@ ul {
 }
 
 .education-card h3 {
-    font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: #004a99;
 }
 
 .education-card p {
-    font-size: clamp(0.9rem, 2vw, 0.95rem);
+    font-size: 0.95rem;
     color: #555;
 }
 
-/* --- Skills Section --- */
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -310,11 +322,7 @@ ul {
     padding: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
     width: 260px;
-    /* Base width */
-    flex: 1 1 260px;
-    /* Allows flexibility and a base width */
-    max-width: 100%;
-    /* Ensure it doesn't overflow */
+    flex: 1 1 220px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -324,13 +332,13 @@ ul {
 }
 
 .skills-card h3 {
-    font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: #004a99;
 }
 
 .skills-card p {
-    font-size: clamp(0.9rem, 2vw, 0.95rem);
+    font-size: 0.95rem;
     color: #555;
 }
 
@@ -346,7 +354,7 @@ ul {
     color: #007bff;
     padding: 0.4rem 0.9rem;
     border-radius: 10px;
-    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    font-size: 0.9rem;
     font-weight: 500;
     box-shadow: 0 2px 6px rgba(0, 123, 255, 0.1);
     transition: background 0.3s ease, color 0.3s ease;
@@ -357,10 +365,10 @@ ul {
     color: #fff;
 }
 
-/* --- Work Experience Section --- */
+/* Work Experience Section */
+
 .work-experience {
-    padding: 1.5rem;
-    /* Consistent padding */
+    padding: 1.5rem 2rem;
     max-width: 1200px;
     margin: 2rem auto;
     background-color: #fff;
@@ -386,11 +394,7 @@ ul {
     padding: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
     width: 280px;
-    /* Base width */
-    flex: 1 1 280px;
-    /* Allows flexibility and a base width */
-    max-width: 100%;
-    /* Ensure it doesn't overflow */
+    flex: 1 1 250px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -400,21 +404,21 @@ ul {
 }
 
 .experience-card h3 {
-    font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: #003366;
 }
 
 .experience-card p {
-    font-size: clamp(0.9rem, 2vw, 0.95rem);
+    font-size: 0.95rem;
     margin-bottom: 0.5rem;
     color: #555;
 }
 
-/* --- Projects Section --- */
+
+
 .projects {
-    padding: 1.5rem;
-    /* Consistent padding */
+    padding: 1.5rem 2rem;
     max-width: 1200px;
     margin: auto;
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
@@ -437,27 +441,25 @@ ul {
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); */
     width: 280px;
-    /* Base width */
-    flex: 1 1 280px;
-    /* Allows flexibility and a base width */
-    max-width: 100%;
-    /* Ensure it doesn't overflow */
+    flex: 1 1 250px;
     transition: transform 0.2s ease;
 }
 
 .project-card:hover {
     box-shadow: 0 15px 40px rgba(121, 122, 122, 0.3);
+    /* transform: translateY(-5px); */
 }
 
 .project-card h3 {
-    font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: #333;
 }
 
 .project-card p {
-    font-size: clamp(0.9rem, 2vw, 0.95rem);
+    font-size: 0.95rem;
     margin-bottom: 1rem;
     color: #555;
 }
@@ -472,8 +474,17 @@ ul {
     text-decoration: underline;
 }
 
-/* --- Footer --- */
+*/ .footer {
+
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+
+
 .footer {
+    /* background-color: #6fa0ea; */
     background: linear-gradient(to right, #007bff, #3399ff);
     color: #f0f0f0;
     padding: 2rem 1rem;
@@ -488,34 +499,25 @@ ul {
 
 .footer-links {
     margin: 1rem 0;
-    display: flex;
-    /* Make links flexible */
-    flex-wrap: wrap;
-    /* Allow links to wrap */
-    justify-content: center;
-    /* Center links */
-    gap: 1rem;
-    /* Space between links */
 }
 
 .footer-links a {
     color: #66ccff;
+    margin: 0 1rem;
     text-decoration: none;
     font-weight: bold;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    /* Responsive font size */
 }
 
 .footer-links a:hover {
     text-decoration: underline;
 }
 
-/* --- Contact Section --- */
+/* Contact Section */
 .contact {
-    padding: 1.5rem;
-    /* Consistent padding */
+    padding: 1rem 2rem;
     max-width: 1200px;
     margin: 12px auto;
+    /* background: linear-gradient(135deg, #e0f7ff 0%, #ffffff 100%); */
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
     transition: box-shadow 0.3s ease;
@@ -526,7 +528,7 @@ ul {
 }
 
 .contact h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: 1.5rem;
     text-align: left;
     margin-bottom: 2rem;
     color: #515356;
@@ -536,13 +538,10 @@ ul {
 /* Contact Info */
 .contact-info {
     display: flex;
-    flex-wrap: wrap;
-    /* Allow wrapping for smaller screens */
     justify-content: center;
-    gap: 1.5rem;
-    /* Reduced gap for smaller screens */
+    gap: 3rem;
     margin-bottom: 3rem;
-    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-size: 1.2rem;
     color: #004a99;
     font-weight: 600;
 }
@@ -560,6 +559,7 @@ ul {
     color: #0056b3;
 }
 
+/* Optional: Add icons with Unicode or SVG */
 .contact-info a::before {
     content: '';
     display: inline-block;
@@ -573,18 +573,19 @@ ul {
 
 .contact-info a[href^="tel"]::before {
     background-image: url('https://cdn-icons-png.flaticon.com/512/724/724664.png');
+    /* phone icon */
 }
 
 .contact-info a[href^="mailto"]::before {
     background-image: url('https://cdn-icons-png.flaticon.com/512/561/561127.png');
+    /* email icon */
 }
 
 /* Contact Form Card */
 .contact-card {
     background-color: #ffffffdd;
     border-radius: 15px;
-    padding: 2rem;
-    /* Reduced padding for smaller screens */
+    padding: 2.5rem 3rem;
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 8px 25px rgba(0, 123, 255, 0.12);
@@ -601,8 +602,7 @@ ul {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    /* Slightly reduced gap */
+    gap: 1.2rem;
 }
 
 .contact-form label {
@@ -612,8 +612,7 @@ ul {
 
 .contact-form input,
 .contact-form textarea {
-    padding: 0.75rem 1rem;
-    /* Adjusted padding */
+    padding: 0.85rem 1.2rem;
     border-radius: 12px;
     border: 1.5px solid #b0d4ff;
     font-size: 1rem;
@@ -650,8 +649,7 @@ ul {
 
 .contact-card-box {
     background-color: #ffffff;
-    padding: 1.5rem;
-    /* Consistent padding */
+    padding: 1.5rem 2rem;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -665,7 +663,7 @@ ul {
 }
 
 .contact-card-box a {
-    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    font-size: 1.1rem;
     font-weight: 600;
     color: #004a99;
     text-decoration: none;
@@ -677,7 +675,21 @@ ul {
     text-decoration: underline;
 }
 
-/* --- Dark Toggle Button --- */
+/* Responsive */
+@media (max-width: 600px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .contact-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+
+/* Toggle Button Style */
 .dark-toggle-btn {
     position: fixed;
     top: 1rem;
@@ -698,22 +710,22 @@ ul {
     background: #f1f1f1;
 }
 
-/* --- Header Layout --- */
+/* Header Layout */
 .site-header {
     position: fixed;
+    /* Fixes the header */
     top: 0;
     left: 0;
     right: 0;
     z-index: 999;
+    /* Stays on top of other elements */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
-    /* Adjusted padding */
+    padding: 1.5rem 2rem;
     background: linear-gradient(to right, #007bff, #3399ff);
     color: white;
     flex-wrap: wrap;
-    /* Allow items to wrap */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -723,10 +735,22 @@ ul {
     gap: 1rem;
 }
 
+@media (max-width: 480px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .header-left {
+        gap: 0.7rem;
+    }
+}
+
 .profile-photo {
-    width: 50px;
-    /* Slightly smaller for mobile */
-    height: 50px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid white;
@@ -734,8 +758,7 @@ ul {
 }
 
 .site-name {
-    font-size: clamp(1.5rem, 3vw, 1.8rem);
-    /* Responsive font size */
+    font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -743,22 +766,15 @@ ul {
 /* Navbar */
 .site-nav {
     display: flex;
-    gap: 1rem;
-    /* Slightly reduced gap */
+    gap: 1.5rem;
     flex-wrap: wrap;
-    /* Allow nav items to wrap */
-    justify-content: center;
-    /* Center nav items when wrapped */
-    margin-top: 0.5rem;
-    /* Add small top margin for wrapped state */
 }
 
 .site-nav a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
-    /* Responsive font size */
+    font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
@@ -766,57 +782,16 @@ ul {
     color: #ffea00;
 }
 
-/* --- Media Queries for Header --- */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .site-header {
-        padding: 1rem;
-        /* More compact padding */
         flex-direction: column;
-        /* Stack header items vertically */
-        align-items: center;
-        /* Center items when stacked */
-        text-align: center;
-    }
-
-    .header-left {
-        flex-direction: column;
-        /* Stack photo and name */
-        gap: 0.5rem;
-    }
-
-    .profile-photo {
-        width: 55px;
-        height: 55px;
-    }
-
-    .site-name {
-        margin-bottom: 0.5rem;
+        align-items: flex-start;
+        gap: 1rem;
     }
 
     .site-nav {
-        margin-top: 1rem;
-        /* More space after stacked header-left */
-        justify-content: center;
+        justify-content: flex-start;
         width: 100%;
-        padding: 0 1rem;
-        /* Ensure nav has horizontal padding */
-    }
-}
-
-@media (max-width: 480px) {
-    .site-header {
-        padding: 0.8rem;
-    }
-
-    .site-nav {
-        flex-direction: column;
-        /* Stack nav links vertically */
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .site-nav a {
-        padding: 0.3rem 0;
-        /* Add vertical padding for touch targets */
+        flex-wrap: wrap;
     }
 }
