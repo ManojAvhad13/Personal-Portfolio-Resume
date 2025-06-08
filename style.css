@@ -24,6 +24,57 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Responsive Contact Section */
+@media (max-width: 600px) {
+    .contact {
+        padding: 1rem 0.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.12);
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 1rem;
+        align-items: flex-start;
+    }
+
+    .contact-card {
+        padding: 1.2rem 0.7rem;
+        max-width: 100%;
+    }
+
+    .contact-card-box {
+        padding: 1rem 0.5rem;
+        min-width: unset;
+    }
+}
+
+@media (min-width: 601px) {
+    .contact {
+        padding: 1rem 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
+    }
+
+    .contact-info {
+        flex-direction: row;
+        gap: 3rem;
+        font-size: 1.2rem;
+        align-items: center;
+    }
+
+    .contact-card {
+        padding: 2.5rem 3rem;
+        max-width: 600px;
+    }
+
+    .contact-card-box {
+        padding: 1.5rem 2rem;
+        min-width: 260px;
+    }
+}
+
 .hero-section h1 {
     color: #003366;
     font-size: 3rem;
